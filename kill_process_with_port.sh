@@ -6,12 +6,20 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-# Find the process ID using port $1
-pid=$(lsof -t -i :$1)
+# Check if the port number is provided as an argument
+if [ $# -eq 0 ]; then
+    echo "Usage: sudo ./kill_port.sh <port_number>"
+    exit 1
+fi
 
-if [ -z "$pid" ]; then
-    echo "No process found using port $1."
+# Get the port number from the first argument
+port=$1
+
+# Find and kill the process using the specified port
+pkill -9 -f ":$port"
+
+if [ $? -eq 0 ]; then
+    echo "Process using port $port has been successfully terminated."
 else
-    echo "Killing process with PID $pid..."
-    kill $pid
+    echo "No process found using port $port."
 fi
