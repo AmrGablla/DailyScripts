@@ -19,7 +19,7 @@ Linux is a versatile and powerful operating system, and shell scripting is a val
 
 Here are some of the scripts you'll find in this repository:
 
-1. [Kill Port](./kill_port_9000.sh): A script that helps you identify and terminate the process using a specified port, making it easier to free up the port for other applications.
+1. [Kill Port](./kill_process_with_port.sh): A script that helps you identify and terminate the process using a specified port, making it easier to free up the port for other applications.
 
 <!-- Add more scripts and descriptions here -->
 
